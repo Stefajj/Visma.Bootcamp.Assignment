@@ -1,0 +1,21 @@
+.controller{
+    display: grid;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: silver;
+    width: 25%;
+    height: 400px;
+    grid-template-columns: auto auto;
+}
+
+.controller>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controller>div>button{
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+}

@@ -1,0 +1,5 @@
+<div #leftPart id="leftPart" class="part">
+</div>
+<div (click)="toggle()" #rightPart [ngClass]="opened==true ? 'open' : 'closed'" id="rightPart" class="part">
+    {{opened}}
+</div>
