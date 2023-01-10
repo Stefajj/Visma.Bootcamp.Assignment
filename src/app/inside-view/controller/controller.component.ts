@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-controller',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControllerComponent implements OnInit {
 
+  @Output() onButtonPressed = new EventEmitter<string>()
+
   constructor() { }
 
   ngOnInit(): void {
@@ -14,7 +17,8 @@ export class ControllerComponent implements OnInit {
 
   buttonPressed(event: any){
     let target = event.target as HTMLButtonElement
-    console.dir(target.innerText)
+    this.onButtonPressed.emit(target.innerHTML)
+    target.classList.add('pressed')
   }
 
 }

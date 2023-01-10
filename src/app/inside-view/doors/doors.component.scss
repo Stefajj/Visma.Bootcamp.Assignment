@@ -1,15 +1,27 @@
 :host{
+    position: relative;
+    width: 400px;
+    height:450px;
+    background-color: lightgray;
+    box-shadow:inset 0px 0px 0px 3px black;
+}
+
+.doors{
     display: flex;
 }
-.part{
+
+.leftPart, .rightPart{
+    box-sizing: border-box;
+    border: 3px solid black;
     width: 200px;
     height: 450px;
-    border: 3px solid black;
     position: absolute;
 }
 
 
-#leftPart{
+.leftPart{
+    left:0;
+    transition: 3s;
     background: rgb(80,80,80);
     background: linear-gradient(90deg, 
                 rgba(80,80,80,1) 0%, 
@@ -17,14 +29,19 @@
                 rgba(190,190,190,1) 100%);
 }
 
-#rightPart{
-    left:206px;
+.rightPart{
+    right:0;
+    transition: 3s;
     background: rgb(80,80,80);
     background: linear-gradient(270deg, rgba(80,80,80,1) 0%, rgba(153,153,153,1) 61%, rgba(190,190,190,1) 100%);
-    transition: 2s;
 }
 
-.open{
-    left:406px!important;
-    transition: 2s;
+.open.leftPart{
+    transition: 3s;
+    left: -197px
+}
+
+.open.rightPart{
+    transition: 3s;
+    right: -197px;
 }

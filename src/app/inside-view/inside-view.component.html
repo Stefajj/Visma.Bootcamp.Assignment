@@ -1,2 +1,13 @@
-<app-controller></app-controller>
-<app-doors></app-doors>
+<div class="header">
+    <input (change)="changeVolume()" [(ngModel)]="volume" type="range" min="1" max="100">
+    <button (click)="playMusic()">Play</button>
+    <button (click)="stopMusic()">Stop</button>
+</div>
+<div class="main">
+    <div>
+        <app-level-indicator></app-level-indicator>
+        <app-controller (onButtonPressed)="operateElevator($event)"></app-controller>
+    </div>
+    <app-doors [operation]="sendOperation"></app-doors>
+</div>
+

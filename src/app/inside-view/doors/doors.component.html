@@ -1,5 +1,7 @@
-<div #leftPart id="leftPart" class="part">
+<div class="doors">
+    <div #leftPart [ngClass]="status=='open' || status=='opening' ? 'open' : ''" class="leftPart">
+    </div>
+    <div #rightPart [ngClass]="status=='open' || status=='opening' ? 'open' : ''" class="rightPart">
+    </div>
 </div>
-<div (click)="toggle()" #rightPart [ngClass]="opened==true ? 'open' : 'closed'" id="rightPart" class="part">
-    {{opened}}
-</div>
+

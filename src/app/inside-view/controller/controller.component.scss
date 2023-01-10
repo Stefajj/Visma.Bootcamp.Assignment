@@ -1,21 +1,25 @@
-.controller{
+:host{
     display: grid;
     padding: 20px;
     border-radius: 20px;
     background-color: silver;
-    width: 25%;
-    height: 400px;
+    width: 150px;
+    height: 350px;
     grid-template-columns: auto auto;
 }
 
-.controller>div{
+div{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.controller>div>button{
+div>button{
     border-radius: 100%;
     width: 60px;
     height: 60px;
+}
+
+.pressed{
+    background-color: lime;
 }
