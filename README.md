@@ -1,4 +1,14 @@
 # Elevator
+Autor: Štefan Tomčej
+
+Popis: Simulácia výťahu - pohľad z vnútra. V mojom riešení som implementoval výťah ktorý dokáže cestovať medzi poschodiami, 
+pomocou kliknutia na tlačidlo s číslom poschodia. Taktiež je možné pomocou tlačidiel otvárať / zatvárať dvere vo výťahu. Po stiskunutí tlačidiel sa označia 
+ako zvolené a výťah o niekoľko sekúnd záčne postupovať na najbližšie možné poschodie. Aktuálne poschodie je signalizované nad ovládačom a príchod na poschodie oznámi 
+výťah cinknutím. V pravom hornom rohu obrazovky je taktiež možné zapnúť / vypnúť výťahovú hudbu. Enjoy!
+
+Využité technológie: Angular, PrimeNG
+
+Zadanie je možné spustiť pomocou nainštalovania npm balíkov - npm install a následne spustením servera využitím angular CLI - ng serve
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
 
