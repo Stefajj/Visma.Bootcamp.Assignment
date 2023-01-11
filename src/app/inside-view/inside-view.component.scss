@@ -9,12 +9,34 @@
     gap: 225px;
     align-items: center;
     justify-content: center;
+    transform: scale(0.8);
 }
 
 .header{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
-    margin-bottom: 100px;
-    padding: 25px;
+    padding: 0 25px;
+    margin-bottom: 25px;
+}
+
+button{
+    margin: 0 10px;
+}
+
+.musicControll>input{
+    margin-top: 20px;
+}
+
+.musicControll>p{
+    text-align: center;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.name{
+    margin-right: auto;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
 }

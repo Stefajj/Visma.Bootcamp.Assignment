@@ -3,7 +3,7 @@
     width: 400px;
     height:450px;
     background-color: lightgray;
-    box-shadow:inset 0px 0px 0px 3px black;
+    box-shadow:inset 0px 0px 0px 3px silver;
 }
 
 .doors{
@@ -12,7 +12,7 @@
 
 .leftPart, .rightPart{
     box-sizing: border-box;
-    border: 3px solid black;
+    border: 3px solid #696969;
     width: 200px;
     height: 450px;
     position: absolute;
@@ -44,4 +44,48 @@
 .open.rightPart{
     transition: 3s;
     right: -197px;
+}
+
+.frame{
+    position:absolute;
+    box-sizing: content-box;
+    left: -200px;
+    width: 400px;
+    height: 450px;
+    background-color: transparent;
+    z-index: 10;
+    border-left: 200px solid gray;
+    border-right: 200px solid gray;
+}
+
+.leftFrame,.rightFrame{
+    position:absolute;
+    height: 450px;
+    width: 95px;
+    background-color: rgb(179, 179, 179);
+    z-index: 20;
+    border: 3px solid silver;
+}
+
+.leftFrame{
+    left:-92px;
+    border-right:none;
+    box-shadow: 7px 0 5px -2px rgb(0,0,0,0.2);
+}
+
+.rightFrame{
+    right:-92px;
+    border-left:none;
+    box-shadow: -7px 0 5px -2px rgb(0,0,0,0.2);
+}
+
+.trapezoid{
+    position:absolute;
+    bottom:-150px;
+    right: -182px;
+    border-bottom: 150px solid darkgray;
+	border-left: 90px solid transparent;
+	border-right: 90px solid transparent;
+	height: 0;
+	width: 764px;
 }

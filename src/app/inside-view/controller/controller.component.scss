@@ -1,10 +1,10 @@
 :host{
     display: grid;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 0 0 25px 25px;
     background-color: silver;
-    width: 150px;
-    height: 350px;
+    min-width: 200px;
+    min-height: 350px;
     grid-template-columns: auto auto;
 }
 
@@ -16,10 +16,19 @@ div{
 
 div>button{
     border-radius: 100%;
+    border: 2px solid gray;
     width: 60px;
     height: 60px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+    &:active{
+        background-color: #4d4dff;
+        border-color: #4d4dff;
+    }
 }
 
 .pressed{
-    background-color: lime;
+    border-color: #4d4dff!important;
 }

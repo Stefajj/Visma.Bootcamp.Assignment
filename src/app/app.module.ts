@@ -8,6 +8,7 @@ import { ControllerComponent } from './inside-view/controller/controller.compone
 import { DoorsComponent } from './inside-view/doors/doors.component';
 import { LevelIndicatorComponent } from './inside-view/level-indicator/level-indicator.component';
 import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

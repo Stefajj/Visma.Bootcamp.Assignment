@@ -1,7 +1,13 @@
 <div class="header">
-    <input (change)="changeVolume()" [(ngModel)]="volume" type="range" min="1" max="100">
-    <button (click)="playMusic()">Play</button>
-    <button (click)="stopMusic()">Stop</button>
+    <p class="name">Štefan Tomčej</p>
+    <div class="musicControll">
+        <p>Elevator music:</p>
+        <div>
+            <button pButton type="button" icon="pi pi-play" (click)="playMusic()" class="p-button-sm p-button-rounded p-button-success"></button>
+            <button pButton type="button" icon="pi pi-stop" (click)="stopMusic()" class="p-button-sm p-button-rounded p-button-danger"></button>
+        </div>
+        <input (change)="changeVolume()" [(ngModel)]="volume" type="range" min="1" max="100">
+    </div>  
 </div>
 <div class="main">
     <div>
@@ -10,4 +16,3 @@
     </div>
     <app-doors [operation]="sendOperation"></app-doors>
 </div>
-

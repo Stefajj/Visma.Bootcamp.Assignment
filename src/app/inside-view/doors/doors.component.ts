@@ -9,15 +9,20 @@ import { ElevatorService } from '../elevatorService/elevator.service';
 })
 export class DoorsComponent implements OnInit {
 
+  //operácia ktorú má výťah vykonať
   @Input() operation!: Subject<string>;
 
+  //aktuálny status výťahu
   status: 'opening' | 'closing' | 'open' | 'closed' = 'open';
 
+  //počas otvárania a zatvárania nesmie byť možné vykonať otvorenie alebo zatvorenie dverí
   disabled: boolean = false;
+  //ak sa dal výťah do pohybu == true
   started: boolean = false;
   @ViewChild('leftPart') leftPart!: ElementRef;
   @ViewChild('rightPart') rightPart!: ElementRef;
 
+  //poschodia a ich príslušné fotky s miestnosťami
   floors: any = [
     //https://i1.wp.com/www.paradyz.com/blog/wp-content/uploads/2018/02/aranzacja-jasnego-wnetrza-neve-ceramika-paradyz.jpg?fit=1280%2C1024&ssl=1
     {floor: 0, img: 'assets/00.jpg'},
@@ -51,6 +56,7 @@ export class DoorsComponent implements OnInit {
     })
   }
 
+  //otváranie dverí
   open(){
     if(!this.disabled && this.status!='open' && this.started==false){
       this.disabled=true
@@ -62,6 +68,7 @@ export class DoorsComponent implements OnInit {
     }
   }
 
+  //zatváranie dverí
   close(){
     if(!this.disabled && this.status!='closed'){
       this.disabled=true
@@ -73,25 +80,32 @@ export class DoorsComponent implements OnInit {
     }
   }
 
+  //pri stlačení tlaćidla s poschodím
   activateButton(floor: number){
+    //ak je stlačené tlačidlo pre poschodie ktoré je rovnaké ako aktuálne poschodie
     if(this.elevator.currentFloor==floor){
       return;
     }
-    console.log(floor)
     if(!this.elevator.selectedFloors.includes(floor)){
-      this.elevator.selectedFloors.push(floor)
+
+      // setter not called
+      // this.elevator.selectedFloors.push(floor) 
+      this.elevator.selectedFloors = [...this.elevator.selectedFloors, floor]
+
     }
     if(!this.started){
       this.switchFloor()
     }
-    console.log(this.elevator.selectedFloors)
   }
 
+  //zmena poschodia k najbližšiemu možnému
   switchFloor(){
     this.started=true;
 
+    //len ak sú zatvorené dvere
     if(this.status=='closed'){
       
+      //najblizsie poschodie
       let closest = this.elevator.selectedFloors.reduce((prev,curr)=>{
         return (Math.abs(curr - this.elevator.currentFloor) < Math.abs(prev - this.elevator.currentFloor) ? curr : prev);
       })
@@ -103,7 +117,9 @@ export class DoorsComponent implements OnInit {
     }
   }
 
+  //postupné prechádzanie poschodí
   elevate(closest:number){
+    //kým nie je výťah na požadovanom poschodí -> posuň o jedno poschodie vyššie / nižšie
     if(closest != this.elevator.currentFloor){
       setTimeout(()=>{
         if(closest>this.elevator.currentFloor)
@@ -113,17 +129,26 @@ export class DoorsComponent implements OnInit {
         this.elevate(closest)
       },2000)
     }else{
-      console.log('Done');
-      let idx = this.elevator.selectedFloors.indexOf(closest)
-      if (idx !== -1) {
-        this.elevator.selectedFloors.splice(idx, 1);
-      }
+      //ak je výťah na požadovanom poschodí
+      this.ringBell()
+      // setter not called
+      // this.elevator.selectedFloors.splice(idx, 1);
+      this.elevator.selectedFloors = this.elevator.selectedFloors.filter(floor => floor != closest)
+
       this.started=false;
       this.open();
       if(this.elevator.selectedFloors.length>0){
         this.switchFloor()
       }
     }
+  }
+
+  ringBell(){
+    let audio = new Audio
+    audio.src = '../../../assets/ring.mp3'
+    audio.load();
+    audio.currentTime = 1
+    audio.play()
   }
 
   changeBackgroundImg(floor:number){

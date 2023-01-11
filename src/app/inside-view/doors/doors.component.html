@@ -1,7 +1,11 @@
 <div class="doors">
+    <div class="frame"></div>
+    <div class="leftFrame"></div>
     <div #leftPart [ngClass]="status=='open' || status=='opening' ? 'open' : ''" class="leftPart">
     </div>
     <div #rightPart [ngClass]="status=='open' || status=='opening' ? 'open' : ''" class="rightPart">
     </div>
+    <div class="rightFrame"></div>
+    <div class="trapezoid"></div>
 </div>
 
